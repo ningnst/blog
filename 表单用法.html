@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单用法</title>
+</head>
+<body>
+form标签中的各个标签都是一个完整的控件，用于接收各种类型的数据，并上传到服务器；都有name和value属性，name表示该控件的名称，value表示该控件接收到的数据，提交时两者一起提交到服务器，这样服务器就知道哪个数据属于哪个控件，对其采取相对于的处理。
+//action表示提交给哪个后台处理页面；method表示提交采用的方法：get方法用于获取数据，提交的数据不保密显示在地址栏；post方法用于上传数据，提交的数据保密。target表示提交后的新页面在哪里打开
+<form action="/abc.html" method="get" target="_blank">
+    //接收小段字符，不可以换行；label标签for属性值为对应的标签id属性值，当点击label标签时，效果同点击其对应的input标签
+    <label for="username">姓名：</label><input type="text" name="username" id="username" placeholder="张三">
+    //接收小段字符，默认显示为圆点，不可以换行；label标签for属性值为对应的标签id属性值，当点击label标签时，效果同点击其对应的input标签
+    <label for="userpassword">密码：</label><input type="password" name="userpassword" id="userpassword" placeholder="密码">
+    <br>
+    //单选，注意name要一致；checked表示默认选择
+    男：<input type="radio" name="sex" value="male" checked> //单选，注意name要一致
+    <br>
+    女：<input type="radio" name="sex" value="female"> //单选，注意name要一致
+    <br>
+    <label>爱好：</label> //多选，注意name要一致;checked表示默认选择
+    读书<input type="checkbox" name="hobby" value="读书" checked>
+    听歌<input type="checkbox" name="hobby" value="听歌">
+    看电影<input type="checkbox" name="hobby" value="看电影">
+    <br>
+    <label>居住地：</label>
+    <select name="city" id="city"> //下拉菜单，单选；设置selected属性的为默认选项，否则为第一项beijing
+        <option value="beijing">北京</option>
+        <option value="shenzhen">深圳</option>
+        <option value="shanghai" selected>上海</option>
+    </select>
+    <br>
+    <label>上传文件</label>
+    <input type="file" name="userfile" accept="image/gif"> //上传文件，accept表示接收的文件类型，其他类型不接收
+    <br>
+    <input type="hidden" name="protect" value="random-value">
+    //该控件是隐藏的，页面渲染时，value值由服务器随机提供；提交时，value会一并提交给服务器，服务器可以检验value是否遭到篡改，提升了安全性。
+    <br>
+    <label>个人描述：</label>
+    <textarea name="describe" id="" cols="30" rows="10"></textarea> //接收大段字符，可以换行
+    <br>
+    <input type="button" name="button">点击我默认没有任何动作 //默认没有任何后续功能
+    <br>
+    <button>提交</button>
+    //button标签放在form标签中时，具有提交功能
+    <br>
+    <input type="submit"> //form标签常规的提交
+    <br>
+    <input type="reset"> //重置数据
+</form>
+</body>
+</html>
